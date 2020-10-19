@@ -95,22 +95,18 @@ function consultarAPI() {
 function mostrarCotizacionHTML(cotizacion){
     limpiarHTML();
 
-    const {PRICE, HIGHDAY, LOWDAY, CHANGEPCT24HOUR, LASTUPDATE, IMAGEURL} = cotizacion;
+    const {PRICE, HIGHDAY, LOWDAY, CHANGEPCT24HOUR, LASTUPDATE} = cotizacion;
 
-    const precio = document.createElement('p');
-    precio.classList.add('precio');
-    precio.innerHTML = `Precio: <span>${PRICE}</span>`;
-
+    const precio = document.createElement('h3');
     const precioAlto = document.createElement('p');
-    precioAlto.innerHTML = `Precio más alto del dia: <span>${HIGHDAY}</span>`;
-
     const precioBajo = document.createElement('p');
-    precioBajo.innerHTML = `Precio más bajo del dia: <span>${LOWDAY}</span>`;
-
     const ultimasHoras = document.createElement('p');
-    ultimasHoras.innerHTML = `Variación en las últimas 24hs: <span>${CHANGEPCT24HOUR}%</span>`;
-
     const ultimaActualizacion = document.createElement('p');
+
+    precio.innerHTML = `Precio: <span>${PRICE}</span>`;
+    precioAlto.innerHTML = `Precio más alto del dia: <span>${HIGHDAY}</span>`;
+    precioBajo.innerHTML = `Precio más bajo del dia: <span>${LOWDAY}</span>`;
+    ultimasHoras.innerHTML = `Variación en las últimas 24hs: <span>${CHANGEPCT24HOUR}%</span>`;    
     ultimaActualizacion.innerHTML = `Última actualización: <span>${LASTUPDATE}</span>`;
 
     resultado.appendChild(precio);
